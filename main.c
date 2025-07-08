@@ -6,11 +6,22 @@
 /*   By: anfiorit <anfiorit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 15:31:18 by anfiorit          #+#    #+#             */
-/*   Updated: 2025/07/08 18:18:14 by anfiorit         ###   ########.fr       */
+/*   Updated: 2025/07/08 19:55:05 by anfiorit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "push_swap.h"
+
+void print_stack(t_node *stack, char *name)
+{
+	printf("Stack %s:\n", name);
+	while (stack)
+	{
+		printf("%d\n", stack->value);
+		stack = stack->next;
+	}
+	printf("----\n");
+}
 
 int main(int argc, char ** argv)
 {
@@ -24,27 +35,25 @@ int main(int argc, char ** argv)
 	if (argc == 1)
 		exit_prob();
 	if (argc == 2)
-		is_int_valid(argv[1], &size);
+		check_argument(argv[1], &size, &stack_a);
 	if (argc > 2)
 	{
 		i = 1;
 		while (i < argc)
 		{
 			is_int_valid(argv[i], &size);
-			//push_node(&stack_a, ft_atoi(argv[i]));
+			push_node(&stack_a, ft_atoi(argv[i]));
 			i++;
 		}
 	}
+	print_stack(stack_a, "A");
 	free_stack(stack_a);
 	free_stack(stack_b);
 	return (0);
 }
 
 
-}
-
-
-
+/*
 ✅ 1. Parser tous tes arguments
 
 2. Remplir ta stack A
@@ -62,3 +71,4 @@ int main(int argc, char ** argv)
 8. Stocker et afficher tes instructions
 
 9. Nettoyer la mémoire
+*/

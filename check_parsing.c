@@ -6,13 +6,13 @@
 /*   By: anfiorit <anfiorit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 16:18:19 by anfiorit          #+#    #+#             */
-/*   Updated: 2025/07/08 17:37:53 by anfiorit         ###   ########.fr       */
+/*   Updated: 2025/07/08 19:57:08 by anfiorit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void check_argument (char *argv)
+void check_argument (char *argv, int *size_stack, t_node **stack_a)
 {
 	int		i;
 	int		j;
@@ -47,7 +47,8 @@ void check_argument (char *argv)
 			while (i < j)
 				buffer[n++] = argv[i++];
 			buffer[n] = '\0';	
-			check_int(buffer);
+			is_int_valid(buffer, size_stack);
+			push_node(stack_a, ft_atoi(buffer));
 			free(buffer);
 		}
 		else if (argv[i] && argv[i] != ' ')
@@ -55,42 +56,12 @@ void check_argument (char *argv)
 	}
 }
 
-void exit_prob(void)
+void is_int_valid(char *buffer, int *size)
 {
-	ft_printf("probleme d'argument tonton");
-	exit(1);
-}
-
-void check_int(char *buffer)
-{
-	char	*str;
-	int		len;
 	long	res;
 	
-	len = ft_strlen(buffer);
 	res = ft_atoi(buffer);
+	if (res > 2147483647 || res < -2147483648)
+		exit_prob();
+	(*size)++;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*./a.out "6 5 4 3"
-
-ac == 2
-	split
-
-
-./a.out 4 3 7 9 6 
-ac > 2
-*/

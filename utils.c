@@ -6,9 +6,11 @@
 /*   By: anfiorit <anfiorit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 17:31:46 by anfiorit          #+#    #+#             */
-/*   Updated: 2025/07/08 17:35:18 by anfiorit         ###   ########.fr       */
+/*   Updated: 2025/07/08 19:41:57 by anfiorit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "push_swap.h"
 
 int ft_strlen(char	*src)
 {
