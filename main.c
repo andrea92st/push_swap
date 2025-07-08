@@ -6,7 +6,7 @@
 /*   By: anfiorit <anfiorit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 15:31:18 by anfiorit          #+#    #+#             */
-/*   Updated: 2025/07/08 19:55:05 by anfiorit         ###   ########.fr       */
+/*   Updated: 2025/07/08 20:09:57 by anfiorit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,13 @@ int main(int argc, char ** argv)
 ✅ 1. Parser tous tes arguments
 
 2. Remplir ta stack A
+OUI CA REMPLIT MAIS YA SEGFAULT ET CA AFFICHE PAS LE MSG DERREUR 
+EXEMPLE ./a.out "4 65 21a 5b3" il va sortir  
+3
+5
+21
+65
+4
 
 3. lancer une vérification des doublons
 
