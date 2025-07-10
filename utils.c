@@ -6,7 +6,7 @@
 /*   By: anfiorit <anfiorit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 17:31:46 by anfiorit          #+#    #+#             */
-/*   Updated: 2025/07/08 19:41:57 by anfiorit         ###   ########.fr       */
+/*   Updated: 2025/07/10 17:18:48 by anfiorit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,11 @@ static int	is_digit(char c)
 	return (0);
 }
 
-int	ft_atoi(const char *str)
+long ft_atol(const char *str)
 {
-	int		i;
-	int		res;
-	int		pos;
+	int			i;
+	long		res;
+	long		pos;
 
 	i = 0;
 	res = 0;
@@ -65,5 +65,7 @@ int	ft_atoi(const char *str)
 		res = res * 10 + str[i] - '0';
 		i++;
 	}
+	if (str[i] != '\0')
+        exit_prob();
 	return (res * pos);
 }

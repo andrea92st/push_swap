@@ -6,7 +6,7 @@
 /*   By: anfiorit <anfiorit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 16:18:19 by anfiorit          #+#    #+#             */
-/*   Updated: 2025/07/10 13:25:44 by anfiorit         ###   ########.fr       */
+/*   Updated: 2025/07/10 18:03:09 by anfiorit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void check_argument (char *argv, int *size_stack, t_node **stack_a)
 				buffer[n++] = argv[i++];
 			buffer[n] = '\0';	
 			is_int_valid(buffer, size_stack);
-			push_node(stack_a, ft_atoi(buffer));
+			push_node_checked(stack_a, ft_atol(buffer));
 			free(buffer);
 		}
 		else if (argv[i] && argv[i] != ' ')
@@ -58,14 +58,14 @@ void check_argument (char *argv, int *size_stack, t_node **stack_a)
 
 void is_int_valid(char *buffer, int *size)
 {
-	int	res;
+	long	res;
 	int		i;
 
 	   i = 0;
     if (buffer[i] == '+' || buffer[i] == '-')
         i++;
-    if (!(buffer[i] >= '0' && buffer[i] <= '9'))
-        exit_prob();
+   if (!(buffer[i] >= '0' && buffer[i] <= '9'))
+       exit_prob();
     while (buffer[i])
     {
         if (!(buffer[i] >= '0' && buffer[i] <= '9'))
@@ -73,7 +73,7 @@ void is_int_valid(char *buffer, int *size)
         i++;
     }
 
-	res = ft_atoi(buffer);
+	res = ft_atol(buffer);
 	if (res > INT_MAX || res < INT_MIN)
 		exit_prob();
 	(*size)++;

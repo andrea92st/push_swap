@@ -6,7 +6,7 @@
 /*   By: anfiorit <anfiorit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 15:31:18 by anfiorit          #+#    #+#             */
-/*   Updated: 2025/07/10 13:27:04 by anfiorit         ###   ########.fr       */
+/*   Updated: 2025/07/10 17:19:56 by anfiorit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int main(int argc, char ** argv)
 		while (i < argc)
 		{
 			is_int_valid(argv[i], &size);
-			push_node(&stack_a, ft_atoi(argv[i]));
+			push_node(&stack_a, ft_atol(argv[i]));
 			i++;
 		}
 	}

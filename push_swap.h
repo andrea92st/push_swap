@@ -23,11 +23,13 @@ int		conv2u(unsigned int n);
 
 void	check_argument(char *argv, int *size, t_node **stack_a);
 void	exit_prob(void);
-int		ft_atoi(const char *str);
+long		ft_atol(const char *str);
 int		ft_strlen(char *str);
 void	push_node(t_node **stack, int value);
 void	is_int_valid(char *buffer, int *size);
 void	free_stack(t_node *stack);
+int  	value_exists(t_node *head, int n);
+void 	push_node_checked(t_node **stack, int n);
 
 void	sa(t_node **a);
 void	sb(t_node **b);
