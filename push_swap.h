@@ -5,12 +5,21 @@
 # include <unistd.h>
 # include <limits.h>
 # include <stdio.h>
+# include <stdarg.h>
+
 
 typedef struct s_node
 {
 	int				value;
 	struct s_node	*next;
 }	t_node;
+
+void	ft_putchar(char c);
+int		ft_printf(const char *format, ...);
+int		conv2hexp(unsigned long n, char *base);
+int		conv2str(char *str);
+int		conv2int(int n);
+int		conv2u(unsigned int n);
 
 void	check_argument(char *argv, int *size, t_node **stack_a);
 void	exit_prob(void);

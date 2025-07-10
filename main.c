@@ -6,7 +6,7 @@
 /*   By: anfiorit <anfiorit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 15:31:18 by anfiorit          #+#    #+#             */
-/*   Updated: 2025/07/08 20:09:57 by anfiorit         ###   ########.fr       */
+/*   Updated: 2025/07/10 13:27:04 by anfiorit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,16 @@ void print_stack(t_node *stack, char *name)
 		printf("%d\n", stack->value);
 		stack = stack->next;
 	}
-	printf("----\n");
 }
 
 int main(int argc, char ** argv)
 {
 	t_node 	*stack_a;
-	t_node 	*stack_b;
+	//t_node 	*stack_b;
 	int		size;
 	int 	i;
 
+	stack_a = NULL;
 	size = 0;
 
 	if (argc == 1)
@@ -48,7 +48,7 @@ int main(int argc, char ** argv)
 	}
 	print_stack(stack_a, "A");
 	free_stack(stack_a);
-	free_stack(stack_b);
+	//free_stack(stack_b);
 	return (0);
 }
 
@@ -57,8 +57,7 @@ int main(int argc, char ** argv)
 ✅ 1. Parser tous tes arguments
 
 2. Remplir ta stack A
-OUI CA REMPLIT MAIS YA SEGFAULT ET CA AFFICHE PAS LE MSG DERREUR 
-EXEMPLE ./a.out "4 65 21a 5b3" il va sortir  
+tout march sauf les intmin/max
 3
 5
 21

@@ -6,7 +6,7 @@
 /*   By: anfiorit <anfiorit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 16:18:19 by anfiorit          #+#    #+#             */
-/*   Updated: 2025/07/08 19:57:08 by anfiorit         ###   ########.fr       */
+/*   Updated: 2025/07/10 13:25:44 by anfiorit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,23 @@ void check_argument (char *argv, int *size_stack, t_node **stack_a)
 
 void is_int_valid(char *buffer, int *size)
 {
-	long	res;
-	
+	int	res;
+	int		i;
+
+	   i = 0;
+    if (buffer[i] == '+' || buffer[i] == '-')
+        i++;
+    if (!(buffer[i] >= '0' && buffer[i] <= '9'))
+        exit_prob();
+    while (buffer[i])
+    {
+        if (!(buffer[i] >= '0' && buffer[i] <= '9'))
+            exit_prob();
+        i++;
+    }
+
 	res = ft_atoi(buffer);
-	if (res > 2147483647 || res < -2147483648)
+	if (res > INT_MAX || res < INT_MIN)
 		exit_prob();
 	(*size)++;
 }

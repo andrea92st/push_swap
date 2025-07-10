@@ -1,31 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_exit.c                                        :+:      :+:    :+:   */
+/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anfiorit <anfiorit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/08 19:54:47 by anfiorit          #+#    #+#             */
-/*   Updated: 2025/07/10 12:54:03 by anfiorit         ###   ########.fr       */
+/*   Created: 2025/07/10 12:27:51 by anfiorit          #+#    #+#             */
+/*   Updated: 2025/07/10 12:53:59 by anfiorit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void free_stack(t_node *stack)
+static void	ft_int2char(int i)
 {
-	t_node *tmp;
+	char	c;
 
-	while (stack)
-	{
-		tmp = stack->next;
-		free(stack);
-		stack = tmp;
-	}
+	c = (i + 48);
+	write (1, &c, 1);
 }
 
-void exit_prob(void)
+int	conv2int(int n)
 {
-	ft_printf("probleme d'argument tonton");
-	exit(1);
+	int	len;
+
+	len = 0;
+	if (n == -2147483648)
+	{
+		write (1, "-2147483648", 11);
+		return (11);
+	}
+	if (n < 0)
+	{
+		write (1, "-", 1);
+		len++;
+		n = -n;
+	}
+	if (n > 9)
+		len += conv2int(n / 10);
+	ft_int2char(n % 10);
+	len++;
+	return (len);
+}
+
+void	ft_putchar(char c)
+{
+	write (1, &c, 1);
 }
