@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anfiorit <anfiorit@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fio <fio@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 15:31:18 by anfiorit          #+#    #+#             */
-/*   Updated: 2025/07/10 17:19:56 by anfiorit         ###   ########.fr       */
+/*   Updated: 2025/07/21 15:24:57 by fio              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void print_stack(t_node *stack, char *name)
 {
 	printf("Stack %s:\n", name);
-	while (stack)
+	while (stack != NULL)
 	{
 		printf("%d\n", stack->value);
 		stack = stack->next;
@@ -31,21 +31,22 @@ int main(int argc, char ** argv)
 
 	stack_a = NULL;
 	size = 0;
-
 	if (argc == 1)
 		exit_prob();
 	if (argc == 2)
 		check_argument(argv[1], &size, &stack_a);
 	if (argc > 2)
 	{
-		i = 1;
-		while (i < argc)
+		i = argc - 1;
+		while (i > 0)
 		{
 			is_int_valid(argv[i], &size);
-			push_node(&stack_a, ft_atol(argv[i]));
-			i++;
+			push_node_checked(&stack_a, ft_atol(argv[i]));
+			i--;
 		}
 	}
+	if(is_sorted(stack_a) == 0)
+		return(ft_printf("cest deja trie batarade"));
 	print_stack(stack_a, "A");
 	free_stack(stack_a);
 	//free_stack(stack_b);
@@ -56,15 +57,10 @@ int main(int argc, char ** argv)
 /*
 ✅ 1. Parser tous tes arguments
 
-2. Remplir ta stack A
-tout march sauf les intmin/max
-3
-5
-21
-65
-4
+✅2. Remplir ta stack A
 
-3. lancer une vérification des doublons
+
+✅3. lancer une vérification des doublons
 
 4. Vérifier si la stack est déjà triée
 

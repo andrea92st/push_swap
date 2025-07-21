@@ -3,58 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   check_parsing.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anfiorit <anfiorit@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fio <fio@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 16:18:19 by anfiorit          #+#    #+#             */
-/*   Updated: 2025/07/10 18:03:09 by anfiorit         ###   ########.fr       */
+/*   Updated: 2025/07/21 15:12:04 by fio              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void check_argument (char *argv, int *size_stack, t_node **stack_a)
+int	value_exists(t_node *head, int x)
 {
-	int		i;
-	int		j;
-	int		n;
-	int		sign;
-	char	*buffer;
-	
-	i = 0;
-	while (argv[i])
+	while(head)
 	{
-		sign = 0;
-		while (argv[i] == ' ')	
-			i++;
-		if (argv[i] == '-' || argv[i] == '+')
-		{
-			sign++;
-			i++;
-		}
-		if (argv[i] == '\0' || argv[i] == ' ')
-			exit_prob();
-		if (argv[i] <= '9' && argv[i] >= '0')
-		{
-			j = i;
-			while (argv[j] && argv[j] != ' ')
-				j++;
-			buffer = malloc (sizeof (char) * (j - i + 1 + sign));
-			if (!buffer)
-				exit_prob();
-			n = 0;
-			if (sign)
-				buffer[n++] = argv[i - 1];
-			while (i < j)
-				buffer[n++] = argv[i++];
-			buffer[n] = '\0';	
-			is_int_valid(buffer, size_stack);
-			push_node_checked(stack_a, ft_atol(buffer));
-			free(buffer);
-		}
-		else if (argv[i] && argv[i] != ' ')
-			exit_prob();
+		if(head->value == x)
+			return (1);
+		head = head->next;
 	}
-}
+	return (0);
+} 
 
 void is_int_valid(char *buffer, int *size)
 {
@@ -78,3 +45,15 @@ void is_int_valid(char *buffer, int *size)
 		exit_prob();
 	(*size)++;
 }
+
+int is_sorted(t_node *stack)
+{
+	while (stack && stack->next)
+	{
+		if (stack->value < stack->next->value)
+			return(1);
+		stack = stack->next;
+	}
+	return(0);
+}
+

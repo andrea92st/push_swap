@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anfiorit <anfiorit@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fio <fio@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 17:31:46 by anfiorit          #+#    #+#             */
-/*   Updated: 2025/07/10 17:18:48 by anfiorit         ###   ########.fr       */
+/*   Updated: 2025/07/21 13:56:30 by fio              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int ft_strlen(char	*src)
 	return(i);
 }
 
-static int	is_whitespace(char c)
+int	is_whitespace(char c)
 {
 	if ((c == ' ') || (c >= 9 && c <= 13))
 		return (1);
@@ -36,7 +36,7 @@ static int	is_symbol(char c)
 	return (0);
 }
 
-static int	is_digit(char c)
+int	is_digit(char c)
 {
 	if ((c <= '9') && (c >= '0'))
 		return (1);

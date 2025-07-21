@@ -30,6 +30,9 @@ void	is_int_valid(char *buffer, int *size);
 void	free_stack(t_node *stack);
 int  	value_exists(t_node *head, int n);
 void 	push_node_checked(t_node **stack, int n);
+int		is_digit(char c);
+int		is_whitespace(char c);
+int is_sorted(t_node *stack);
 
 void	sa(t_node **a);
 void	sb(t_node **b);
