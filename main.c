@@ -6,7 +6,7 @@
 /*   By: fio <fio@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 15:31:18 by anfiorit          #+#    #+#             */
-/*   Updated: 2025/07/21 15:24:57 by fio              ###   ########.fr       */
+/*   Updated: 2025/08/16 17:14:58 by fio              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void print_stack(t_node *stack, char *name)
 	}
 }
 
-int main(int argc, char ** argv)
+int main(int argc, char **argv)
 {
 	t_node 	*stack_a;
 	//t_node 	*stack_b;
@@ -47,6 +47,7 @@ int main(int argc, char ** argv)
 	}
 	if(is_sorted(stack_a) == 0)
 		return(ft_printf("cest deja trie batarade"));
+	change_stack_val(&stack_a);
 	print_stack(stack_a, "A");
 	free_stack(stack_a);
 	//free_stack(stack_b);

@@ -32,7 +32,12 @@ int  	value_exists(t_node *head, int n);
 void 	push_node_checked(t_node **stack, int n);
 int		is_digit(char c);
 int		is_whitespace(char c);
-int is_sorted(t_node *stack);
+int 	is_sorted(t_node *stack);
+void 	replace_val_stack(int val, int index, t_node **a);
+void 	newval_tab(int *tab, t_node **a, int len);
+int 	len_tab(t_node **a);
+void 	copy_tab(int *tab, t_node **a);
+void 	change_stack_val(t_node **a);
 
 void	sa(t_node **a);
 void	sb(t_node **b);
