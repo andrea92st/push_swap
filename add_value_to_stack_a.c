@@ -6,7 +6,7 @@
 /*   By: fio <fio@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 19:06:35 by anfiorit          #+#    #+#             */
-/*   Updated: 2025/07/21 14:09:16 by fio              ###   ########.fr       */
+/*   Updated: 2025/08/16 18:39:30 by fio              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,40 +19,35 @@ void check_argument (char *argv, int *size_stack, t_node **stack_a)
 	int		n;
 	int		sign;
 	char	*buffer;
-	
+
 	i = 0;
 	while (argv[i])
+		i++;
+	i--;
+	while (i >= 0)
 	{
+		while (i >= 0 && argv[i] == ' ')
+			i--;
+		if (i < 0)
+			break;
+		j = i;
+		while (j >= 0 && argv[j] != ' ')
+			j--;
 		sign = 0;
-		while (argv[i] == ' ')	
-			i++;
-		if (argv[i] == '-' || argv[i] == '+')
+		n = 0;
 		{
-			sign++;
-			i++;
-		}
-		if (is_whitespace(argv[i]) == 1)
-			exit_prob();
-		if (is_digit(argv[i]) == 1)
-		{
-			j = i;
-			while (argv[j] && argv[j] != ' ')
-				j++;
-			buffer = malloc (sizeof (char) * (j - i + 1 + sign));
+			int start = j + 1;
+			buffer = malloc(sizeof(char) * (i - start + 2));
 			if (!buffer)
 				exit_prob();
-			n = 0;
-			if (sign)
-				buffer[n++] = argv[i - 1];
-			while (i < j)
-				buffer[n++] = argv[i++];
-			buffer[n] = '\0';	
-			is_int_valid(buffer, size_stack);
-			push_node_checked(stack_a, ft_atol(buffer));
-			free(buffer);
+			while (start <= i)
+				buffer[n++] = argv[start++];
+			buffer[n] = '\0';
 		}
-		else if (argv[i] && argv[i] != ' ')
-			exit_prob();
+		is_int_valid(buffer, size_stack);
+		push_node_checked(stack_a, ft_atol(buffer));
+		free(buffer);
+		i = j - 1;
 	}
 }
 
@@ -72,3 +67,14 @@ void push_node_checked(t_node **stack, int x)
         exit_prob();
     push_node(stack, x);
 }
+
+int	value_exists(t_node *head, int x)
+{
+	while(head)
+	{
+		if(head->value == x)
+			return (1);
+		head = head->next;
+	}
+	return (0);
+} 

@@ -6,22 +6,11 @@
 /*   By: fio <fio@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 16:18:19 by anfiorit          #+#    #+#             */
-/*   Updated: 2025/07/21 15:12:04 by fio              ###   ########.fr       */
+/*   Updated: 2025/08/16 18:40:02 by fio              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	value_exists(t_node *head, int x)
-{
-	while(head)
-	{
-		if(head->value == x)
-			return (1);
-		head = head->next;
-	}
-	return (0);
-} 
 
 void is_int_valid(char *buffer, int *size)
 {
@@ -50,7 +39,7 @@ int is_sorted(t_node *stack)
 {
 	while (stack && stack->next)
 	{
-		if (stack->value < stack->next->value)
+		if (stack->value > stack->next->value)
 			return(1);
 		stack = stack->next;
 	}
