@@ -1,37 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations_p.c                                     :+:      :+:    :+:   */
+/*   algo_triv_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fio <fio@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/13 15:28:40 by fio               #+#    #+#             */
-/*   Updated: 2025/08/18 19:19:55 by fio              ###   ########.fr       */
+/*   Created: 2025/08/18 18:37:47 by fio               #+#    #+#             */
+/*   Updated: 2025/08/18 22:40:55 by fio              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	pa(t_node **a, t_node **b)
+void pos_zero(t_node **a, t_node **b)
 {
-	t_node *top;
-	if (!b || !*b)
-		return;
-	top = *b;
-	*b = top->next;
-	top->next = *a;
-	*a = top;
-	write(1, "pa\n", 3);
+	pb(a,b);
+	sort_four(a, b);
+	pa(a,b);
 }
-
-void	pb(t_node **a, t_node **b)
+void pos_one(t_node **a, t_node **b)
 {
-	t_node *top;
-	if (!a || !*a)
-		return;
-	top = *a;
-	*a = top->next;
-	top->next = *b;
-	*b = top;
-	write(1, "pb\n", 3);
+	ra(a);
+	pb(a,b);
+	sort_four(a, b);
+	pa(a,b);	
+}
+void pos_two(t_node **a, t_node **b)
+{
+	ra(a);
+	ra(a);
+	pb(a, b);
+	sort_four(a, b);
+	pa(a, b);
+}
+void pos_last(t_node **a, t_node **b)
+{
+	rra(a);
+	pb(a, b);
+	sort_four(a, b);
+	pa(a, b);
 }

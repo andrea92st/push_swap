@@ -1,0 +1,114 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   algo_triv.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fio <fio@student.42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/08/17 13:54:21 by fio               #+#    #+#             */
+/*   Updated: 2025/08/18 22:39:51 by fio              ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "push_swap.h"
+
+void sort_two(t_node **stack)
+{
+	int	a;
+	int b;
+
+	a = (*stack)->value;
+	b = (*stack)->next->value;
+	if (a > b)
+		sa(stack);
+}
+
+void sort_three(t_node **stack)
+{
+	int	a;
+	int	b;
+	int	c;
+	
+	a = (*stack)->value;
+	b = (*stack)->next->value;
+	c  = (*stack)->next->next->value;
+	if (a > b && b > c && a > c) // 2 1 0 
+	{
+		sa(stack);
+		rra(stack);
+	}
+	else if (a > b && b < c && a > c) // 2 0 1
+		ra(stack);
+	else if (a < b && b > c && a < c) // 0 2 1
+	{
+		sa(stack);
+		ra(stack);
+	}
+	else if (a > b && b < c && a < c) // 1 0 2
+		sa(stack);
+	else if (a < b && b > c && a > c) // 1 2 0
+		rra(stack);
+	return ;
+}
+
+void sort_four(t_node **a, t_node **b)
+{
+	int		pos;
+	t_node *tmp;
+
+	tmp = *a;
+	pos = find_min(tmp);
+	if (pos == 0)
+	{
+		pb(a,b);
+		sort_three(a);
+		pa(a,b);
+	}
+	if (pos == 1)
+	{
+		ra(a);
+		pb(a,b);
+		sort_three(a);
+		pa(a,b);	
+	}	
+	if (pos == 2)
+	{
+		ra(a);
+		ra(a);
+		pb(a, b);
+		sort_three(a);
+		pa(a, b);
+	}
+	if (pos == 3)
+	{
+		rra(a);
+		pb(a, b);
+		sort_three(a);
+		pa(a, b);
+	}
+}
+
+void sort_five(t_node **a, t_node **b)
+{
+	int pos;
+	t_node *tmp;
+
+	tmp = *a;
+	pos = find_min(tmp);
+	if (pos == 0)
+		pos_zero(a, b);
+	if (pos == 1)
+		pos_one(a, b);
+	if (pos == 2)
+		pos_two(a, b);
+	if (pos == 3)
+	{
+		rra(a);
+		rra(a);
+		pb(a, b);
+		sort_four(a, b);
+		pa(a, b);
+	}
+	if (pos == 4)
+		pos_last(a, b);
+}

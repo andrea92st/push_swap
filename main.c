@@ -6,7 +6,7 @@
 /*   By: fio <fio@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 15:31:18 by anfiorit          #+#    #+#             */
-/*   Updated: 2025/08/16 17:14:58 by fio              ###   ########.fr       */
+/*   Updated: 2025/08/18 22:42:56 by fio              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,12 @@ void print_stack(t_node *stack, char *name)
 int main(int argc, char **argv)
 {
 	t_node 	*stack_a;
-	//t_node 	*stack_b;
+	t_node 	*stack_b;
 	int		size;
 	int 	i;
 
 	stack_a = NULL;
+	stack_b = NULL;
 	size = 0;
 	if (argc == 1)
 		exit_prob();
@@ -46,11 +47,22 @@ int main(int argc, char **argv)
 		}
 	}
 	if(is_sorted(stack_a) == 0)
-		return(ft_printf("cest deja trie batarade"));
+	{
+		free_stack(stack_a);
+		return(ft_printf("cest deja tri"));
+	}
 	change_stack_val(&stack_a);
+	if (size == 2)
+		sort_three(&stack_a);
+	if (size == 3)
+		sort_three(&stack_a);
+	if (size == 4)
+		sort_four(&stack_a, &stack_b);
+	if (size == 5)
+		sort_five(&stack_a, &stack_b);
 	print_stack(stack_a, "A");
 	free_stack(stack_a);
-	//free_stack(stack_b);
+	free_stack(stack_b);
 	return (0);
 }
 

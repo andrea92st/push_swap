@@ -38,6 +38,14 @@ void 	newval_tab(int *tab, t_node **a, int len);
 int 	len_tab(t_node **a);
 void 	copy_tab(int *tab, t_node **a);
 void 	change_stack_val(t_node **a);
+void 	sort_three(t_node **stack);
+void 	sort_four(t_node **a, t_node **b);
+void 	sort_five(t_node **a, t_node **b);
+int		find_min(t_node *tmp);
+void	pos_zero(t_node **a, t_node **b);
+void	pos_one(t_node **a, t_node **b);
+void	pos_two(t_node **a, t_node **b);
+void	pos_last(t_node **a, t_node **b);
 
 void	sa(t_node **a);
 void	sb(t_node **b);
