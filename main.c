@@ -6,7 +6,7 @@
 /*   By: fio <fio@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 15:31:18 by anfiorit          #+#    #+#             */
-/*   Updated: 2025/08/18 22:42:56 by fio              ###   ########.fr       */
+/*   Updated: 2025/08/18 22:45:40 by fio              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int main(int argc, char **argv)
 	}
 	change_stack_val(&stack_a);
 	if (size == 2)
-		sort_three(&stack_a);
+		sort_two(&stack_a);
 	if (size == 3)
 		sort_three(&stack_a);
 	if (size == 4)

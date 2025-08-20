@@ -6,7 +6,7 @@
 /*   By: fio <fio@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 16:18:19 by anfiorit          #+#    #+#             */
-/*   Updated: 2025/08/16 18:40:02 by fio              ###   ########.fr       */
+/*   Updated: 2025/08/20 17:02:03 by fio              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,15 @@ int is_sorted(t_node *stack)
 	}
 	return(0);
 }
+int	value_exists(t_node *head, int x)
+{
+	while(head)
+	{
+		if(head->value == x)
+			return (1);
+		head = head->next;
+	}
+	return (0);
+} 
+
 

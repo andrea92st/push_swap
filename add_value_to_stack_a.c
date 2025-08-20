@@ -6,7 +6,7 @@
 /*   By: fio <fio@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 19:06:35 by anfiorit          #+#    #+#             */
-/*   Updated: 2025/08/16 18:39:30 by fio              ###   ########.fr       */
+/*   Updated: 2025/08/20 17:01:25 by fio              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void check_argument (char *argv, int *size_stack, t_node **stack_a)
 	}
 }
 
+
 void push_node(t_node **stack, int value)
 {
 	t_node *new = malloc(sizeof(t_node));
@@ -67,14 +68,3 @@ void push_node_checked(t_node **stack, int x)
         exit_prob();
     push_node(stack, x);
 }
-
-int	value_exists(t_node *head, int x)
-{
-	while(head)
-	{
-		if(head->value == x)
-			return (1);
-		head = head->next;
-	}
-	return (0);
-} 
