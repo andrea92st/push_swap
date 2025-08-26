@@ -6,12 +6,12 @@
 /*   By: fio <fio@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 15:31:18 by anfiorit          #+#    #+#             */
-/*   Updated: 2025/08/18 22:45:40 by fio              ###   ########.fr       */
+/*   Updated: 2025/08/26 21:30:53 by fio              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+/*
 void print_stack(t_node *stack, char *name)
 {
 	printf("Stack %s:\n", name);
@@ -20,7 +20,7 @@ void print_stack(t_node *stack, char *name)
 		printf("%d\n", stack->value);
 		stack = stack->next;
 	}
-}
+}*/
 
 int main(int argc, char **argv)
 {
@@ -60,12 +60,13 @@ int main(int argc, char **argv)
 		sort_four(&stack_a, &stack_b);
 	if (size == 5)
 		sort_five(&stack_a, &stack_b);
-	print_stack(stack_a, "A");
+	//print_stack(stack_a, "A");
+	if (size > 5)
+		main_algo(&stack_a, &stack_b);
 	free_stack(stack_a);
 	free_stack(stack_b);
 	return (0);
 }
-
 
 /*
 ✅ 1. Parser tous tes arguments

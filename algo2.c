@@ -6,7 +6,7 @@
 /*   By: fio <fio@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 19:58:46 by fio               #+#    #+#             */
-/*   Updated: 2025/08/26 19:13:18 by fio              ###   ########.fr       */
+/*   Updated: 2025/08/26 21:21:27 by fio              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,25 +43,6 @@ int choose_chunk_size(t_node **stack)
 		return (3);
 }
 
-void find_and_send(t_node **a, t_node **b,  int top, int bottom)
-{
-	int count_moves_bottom;
-	int count_moves_top;
-
-	
-	count_moves_top = pos_top(a, top, bottom);
-	count_moves_bottom = pos_bottom(a, top, bottom);
-	if (count_moves_top == 0)
-	{
-		pb(a, b);
-		return;
-	}
-	else if (count_moves_top <= count_moves_bottom)
-		top_with_ra(count_moves_top, a, b);
-	else
-		top_with_rra(count_moves_bottom, a, b);
-
-}
 int chunk_is_not_sorted(t_node **b, int top, int bottom)
 {
 	t_node *tmp;

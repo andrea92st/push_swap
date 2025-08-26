@@ -6,7 +6,7 @@
 /*   By: fio <fio@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 19:07:41 by fio               #+#    #+#             */
-/*   Updated: 2025/08/26 19:13:16 by fio              ###   ########.fr       */
+/*   Updated: 2025/08/26 21:27:54 by fio              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,23 @@ void main_algo(t_node **a, t_node **b)
 }
 void sort_and_pushback(t_node **a, t_node **b)
 {
+	int	min_val;
+	int	sort_rb;
+	int	sort_rrb;
 	
-
-
-
+	while(*b)
+	{
+		
+		min_val = find_min(b);
+		sort_rb = pos_top(b, min_val, min_val);
+		sort_rrb = pos_bottom(b, min_val, min_val);
+		if (sort_rb <= sort_rrb)
+			sort_with_rb(b, sort_rb);
+		else
+			sort_with_rrb(b, sort_rrb);
+		pa(a, b);
+		ra(a);
+	}
 }
 void push_to_b(t_node **a, t_node **b)
 {
@@ -50,4 +63,23 @@ void push_to_b(t_node **a, t_node **b)
 		if (head_chunk >= len_max)
 			break ;
 	}
+}
+void find_and_send(t_node **a, t_node **b,  int top, int bottom)
+{
+	int count_moves_bottom;
+	int count_moves_top;
+
+	
+	count_moves_top = pos_top(a, top, bottom);
+	count_moves_bottom = pos_bottom(a, top, bottom);
+	if (count_moves_top == 0)
+	{
+		pb(a, b);
+		return;
+	}
+	else if (count_moves_top <= count_moves_bottom)
+		top_with_ra(count_moves_top, a, b);
+	else
+		top_with_rra(count_moves_bottom, a, b);
+
 }

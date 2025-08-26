@@ -48,6 +48,7 @@ void	pos_one(t_node **a, t_node **b);
 void	pos_two(t_node **a, t_node **b);
 void	pos_last(t_node **a, t_node **b);
 int		len_stack(t_node **stack);
+void main_algo(t_node **a, t_node **b);
 
 void	sa(t_node **a);
 void	sb(t_node **b);

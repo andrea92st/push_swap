@@ -6,7 +6,7 @@
 /*   By: fio <fio@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 18:44:57 by fio               #+#    #+#             */
-/*   Updated: 2025/08/26 19:13:20 by fio              ###   ########.fr       */
+/*   Updated: 2025/08/26 21:26:04 by fio              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,39 +36,26 @@ void top_with_ra(int count, t_node **a, t_node **b)
 	}
 	pb(a, b);
 }
-int pos_top(t_node **a, int top, int bottom)
+void sort_with_rb(t_node **b, int count)
 {
-	t_node	*pos;
-	int i;
+	int	i;
 
 	i = 0;
-	pos = *a;
-	while (pos)
+	while (i < count)
 	{
-		if (pos->value >= top && pos->value <= bottom)
-			return (i);
-		pos = pos->next;
+		rb(b);
 		i++;
 	}
-	return (i);
 }
-int pos_bottom(t_node **a, int top, int bottom)
+
+void sort_with_rrb(t_node **b, int count)
 {
-	t_node	*index;
-	int		len;
-	int 	pos;
-	int 	i;
+	int	i;
 
 	i = 0;
-	pos = 0;
-	len = len_stack(a);
-	index = *a;
-	while(index)
+	while (i < count)
 	{
-		if (index->value >= top && index->value <= bottom)
-			pos = i;
+		rrb(b);
 		i++;
-		index = index->next;
 	}
-	return(len - pos);
 }
