@@ -5,45 +5,30 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fio <fio@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/18 19:58:46 by fio               #+#    #+#             */
-/*   Updated: 2025/08/20 20:41:02 by fio              ###   ########.fr       */
+/*   Created: 2025/08/26 19:07:41 by fio               #+#    #+#             */
+/*   Updated: 2025/08/26 19:13:16 by fio              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-int is_value_in_a(t_node **stack, int first, int last)
-{
-
-	t_node *test;
-	test = *stack;
-	while(test)
-	{
-		if(test->value >= first && test->value <= last)
-			return (1);
-		test = test->next;
-	}
-	return (0);
-
-}
-int choose_chunk_size(t_node **stack)
-{
-	int len;
-
-	len = len_stack(stack);
-	if (len > 500)
-		return (50);
-	else if (len > 300)
-		return (25);
-	else if (len > 100)
-		return (20);
-	else if (len > 20)
-		return (5);
-	else
-		return (3);
-}
+# include "push_swap.h"
 
 void main_algo(t_node **a, t_node **b)
+{
+	push_to_b(a, b);
+	sort_and_pushback(a, b);
+
+
+
+
+}
+void sort_and_pushback(t_node **a, t_node **b)
+{
+	
+
+
+
+}
+void push_to_b(t_node **a, t_node **b)
 {
 	int size_chunk;
 	int head_chunk;
@@ -55,34 +40,14 @@ void main_algo(t_node **a, t_node **b)
 	head_chunk = 0;
 	tail_chunk = size_chunk - 1;
 	while(*a)
-		while(is_value_in_a(a, head_chunk, tail_chunk))
-		{
-			find_val_pos(a, head_chunk, tail_chunk);
-		}
+	{
+		if (tail_chunk >= len_max)
+			tail_chunk = len_max - 1;
+		while(is_value_in_chunk(a, head_chunk, tail_chunk))
+			find_and_send(a, b, head_chunk, tail_chunk);
 		head_chunk += size_chunk;
 		tail_chunk += size_chunk;
-
-}
-int pos_top(t_node **a, int *val, int top, int bottom)
-{
-
-
-
-
-}
-int pos_bottom(t_node **a, int *val, int top, int bottom)
-{
-
-
-
-}
-int find_val_pos(t_node **a, int start, int end)
-{
-	t_node *val;
-	int count_bottom;
-	int count_top;
-	
-	val = *a;
-	count_top = pos_top(a, val, start, end);
-	count_bottom = pos_bottom(a, val, start, end);
+		if (head_chunk >= len_max)
+			break ;
+	}
 }
