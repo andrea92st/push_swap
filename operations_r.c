@@ -3,25 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   operations_r.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fio <fio@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: anfiorit <anfiorit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 16:02:43 by fio               #+#    #+#             */
-/*   Updated: 2025/08/16 18:13:36 by fio              ###   ########.fr       */
+/*   Updated: 2025/08/27 16:39:59 by anfiorit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 void	ra(t_node **a)
 {
-	t_node *last;
-	t_node *head;
+	t_node	*last;
+	t_node	*head;
+
 	if (!a || !*a || !(*a)->next)
-		return;
+		return ;
 	head = *a;
 	*a = head->next;
 	head->next = NULL;
 	last = *a;
-	while(last->next)
+	while (last->next)
 		last = last->next;
 	last->next = head;
 	write(1, "ra\n", 3);
@@ -29,10 +31,11 @@ void	ra(t_node **a)
 
 void	rb(t_node **b)
 {
-	t_node *last;
-	t_node *head;
+	t_node	*last;
+	t_node	*head;
+
 	if (!b || !*b || !(*b)->next)
-		return;
+		return ;
 	head = *b;
 	*b = head->next;
 	head->next = NULL;
@@ -40,18 +43,18 @@ void	rb(t_node **b)
 	while (last->next)
 		last = last->next;
 	last->next = head;
-	write(1, "rb\n", 3);	
+	write(1, "rb\n", 3);
 }
 
 void	rr(t_node **a, t_node **b)
 {
-	t_node *last_b;
-	t_node *head_b;
-	t_node *last_a;
-	t_node *head_a;
+	t_node	*last_b;
+	t_node	*head_b;
+	t_node	*last_a;
+	t_node	*head_a;
 
 	if (!b || !*b || !(*b)->next || !a || !*a || !(*a)->next)
-		return;
+		return ;
 	head_b = *b;
 	*b = head_b->next;
 	head_b->next = NULL;
@@ -63,7 +66,7 @@ void	rr(t_node **a, t_node **b)
 	*a = head_a->next;
 	head_a->next = NULL;
 	last_a = *a;
-	while(last_a->next)
+	while (last_a->next)
 		last_a = last_a->next;
 	last_a->next = head_a;
 	write(1, "rr\n", 3);

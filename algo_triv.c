@@ -6,16 +6,16 @@
 /*   By: anfiorit <anfiorit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/17 13:54:21 by fio               #+#    #+#             */
-/*   Updated: 2025/08/27 12:27:37 by anfiorit         ###   ########.fr       */
+/*   Updated: 2025/08/27 17:00:29 by anfiorit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void sort_two(t_node **stack)
+void	sort_two(t_node **stack)
 {
 	int	a;
-	int b;
+	int	b;
 
 	a = (*stack)->value;
 	b = (*stack)->next->value;
@@ -23,53 +23,53 @@ void sort_two(t_node **stack)
 		sa(stack);
 }
 
-void sort_three(t_node **stack)
+void	sort_three(t_node **stack)
 {
 	int	a;
 	int	b;
 	int	c;
-	
+
 	a = (*stack)->value;
 	b = (*stack)->next->value;
-	c  = (*stack)->next->next->value;
-	if (a > b && b > c && a > c) // 2 1 0 
+	c = (*stack)->next->next->value;
+	if (a > b && b > c && a > c)
 	{
 		sa(stack);
 		rra(stack);
 	}
-	else if (a > b && b < c && a > c) // 2 0 1
+	else if (a > b && b < c && a > c)
 		ra(stack);
-	else if (a < b && b > c && a < c) // 0 2 1
+	else if (a < b && b > c && a < c)
 	{
 		sa(stack);
 		ra(stack);
 	}
-	else if (a > b && b < c && a < c) // 1 0 2
+	else if (a > b && b < c && a < c)
 		sa(stack);
-	else if (a < b && b > c && a > c) // 1 2 0
+	else if (a < b && b > c && a > c)
 		rra(stack);
 	return ;
 }
 
-void sort_four(t_node **a, t_node **b)
+void	sort_four(t_node **a, t_node **b)
 {
+	t_node	*tmp;
 	int		pos;
-	t_node *tmp;
 
 	tmp = *a;
 	pos = find_min_triv(tmp);
 	if (pos == 0)
 	{
-		pb(a,b);
+		pb(a, b);
 		sort_three(a);
-		pa(a,b);
+		pa(a, b);
 	}
 	if (pos == 1)
 	{
 		ra(a);
-		pb(a,b);
+		pb(a, b);
 		sort_three(a);
-		pa(a,b);	
+		pa(a, b);
 	}	
 	if (pos == 2)
 	{
@@ -88,10 +88,10 @@ void sort_four(t_node **a, t_node **b)
 	}
 }
 
-void sort_five(t_node **a, t_node **b)
+void	sort_five(t_node **a, t_node **b)
 {
-	int pos;
-	t_node *tmp;
+	t_node	*tmp;
+	int		pos;
 
 	tmp = *a;
 	pos = find_min_triv(tmp);

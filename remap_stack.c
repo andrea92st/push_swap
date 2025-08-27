@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   remap_stack.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fio <fio@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: anfiorit <anfiorit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 15:56:33 by fio               #+#    #+#             */
-/*   Updated: 2025/08/16 17:06:33 by fio              ###   ########.fr       */
+/*   Updated: 2025/08/27 16:46:42 by anfiorit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void change_stack_val(t_node **a)
+void	change_stack_val(t_node **a)
 {
 	int	len_max;
-	int *tab;
+	int	*tab;
 
 	len_max = len_tab(a);
 	if (len_max <= 1)
@@ -28,14 +28,14 @@ void change_stack_val(t_node **a)
 	free(tab);
 }
 
-void copy_tab(int *tab, t_node **a)
+void	copy_tab(int *tab, t_node **a)
 {
-	int	i;
-	t_node *index;
+	t_node	*index;
+	int		i;
 
 	i = 0;
 	index = *a;
-	while(index)
+	while (index)
 	{
 		tab[i] = index->value;
 		index = index->next;
@@ -43,14 +43,14 @@ void copy_tab(int *tab, t_node **a)
 	}
 }
 
-int len_tab(t_node **a)
+int	len_tab(t_node **a)
 {
-	int	len;
-	t_node *tmp;
+	t_node	*tmp;
+	int		len;
 
 	len = 0;
 	tmp = *a;
-	while(tmp)
+	while (tmp)
 	{
 		len++;
 		tmp = tmp->next;
@@ -58,11 +58,11 @@ int len_tab(t_node **a)
 	return (len);
 }
 
-void newval_tab(int *tab, t_node **a, int len)
+void	newval_tab(int *tab, t_node **a, int len)
 {
 	int	i;
-	int count;
-	int val;
+	int	count;
+	int	val;
 
 	count = 0;
 	while (count < len)
@@ -80,10 +80,10 @@ void newval_tab(int *tab, t_node **a, int len)
 	}
 }
 
-void replace_val_stack(int val, int index, t_node **a)
+void	replace_val_stack(int val, int index, t_node **a)
 {
 	t_node	*i;
-	int sniper;
+	int		sniper;
 
 	sniper = 0;
 	i = *a;

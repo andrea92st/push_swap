@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operations_s.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fio <fio@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: anfiorit <anfiorit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 15:39:55 by fio               #+#    #+#             */
-/*   Updated: 2025/08/16 18:13:29 by fio              ###   ########.fr       */
+/*   Updated: 2025/08/27 16:38:21 by anfiorit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	sa(t_node **a)
 	int	tmp;
 
 	if (!a || !*a || !(*a)->next)
-		return;
+		return ;
 	tmp = (*a)->value;
 	(*a)->value = (*a)->next->value;
 	(*a)->next->value = tmp;
@@ -26,23 +26,24 @@ void	sa(t_node **a)
 
 void	sb(t_node **b)
 {
-	int tmp;
+	int	tmp;
 
 	if (!b || !*b || !(*b)->next)
-		return;
+		return ;
 	tmp = (*b)->value;
 	(*b)->value = (*b)->next->value;
 	(*b)->next->value = tmp;
 	write(1, "sb\n", 3);
 }
+
 void	ss(t_node **a, t_node **b)
 {
-	int tmp;
+	int	tmp;
 
 	if (!b || !*b || !(*b)->next)
-		return;
+		return ;
 	if (!a || !*a || !(*a)->next)
-		return;
+		return ;
 	tmp = (*b)->value;
 	(*b)->value = (*b)->next->value;
 	(*b)->next->value = tmp;

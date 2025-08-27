@@ -6,17 +6,17 @@
 /*   By: anfiorit <anfiorit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 19:47:01 by fio               #+#    #+#             */
-/*   Updated: 2025/08/27 12:44:22 by anfiorit         ###   ########.fr       */
+/*   Updated: 2025/08/27 16:25:17 by anfiorit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int find_min(t_node **b)
+int	find_min(t_node **b)
 {
 	t_node	*tmp;
-	int 	min_val;
-	
+	int		min_val;
+
 	tmp = *b;
 	min_val = tmp->value;
 	while (tmp)
@@ -28,11 +28,11 @@ int find_min(t_node **b)
 	return (min_val);
 }
 
-int find_min_triv(t_node *tmp)
+int	find_min_triv(t_node *tmp)
 {
 	int	pos;
-	int i;
-	int min_val;
+	int	i;
+	int	min_val;
 
 	min_val = tmp->value;
 	pos = 0;
@@ -49,24 +49,25 @@ int find_min_triv(t_node *tmp)
 	return (pos);
 }
 
-int len_stack(t_node **stack)
+int	len_stack(t_node **stack)
 {
-	t_node *index;
-	int	i;
+	t_node	*index;
+	int		i;
 
 	i = 0;
 	index = *stack;
-	while(index)
+	while (index)
 	{
 		index = index->next;
 		i++;
 	}
 	return (i);
 }
-int pos_top(t_node **a, int top, int bottom)
+
+int	pos_top(t_node **a, int top, int bottom)
 {
 	t_node	*pos;
-	int i;
+	int		i;
 
 	i = 0;
 	pos = *a;
@@ -79,23 +80,24 @@ int pos_top(t_node **a, int top, int bottom)
 	}
 	return (i);
 }
-int pos_bottom(t_node **a, int top, int bottom)
+
+int	pos_bottom(t_node **a, int top, int bottom)
 {
 	t_node	*index;
 	int		len;
-	int 	pos;
-	int 	i;
+	int		pos;
+	int		i;
 
 	i = 0;
 	pos = 0;
 	len = len_stack(a);
 	index = *a;
-	while(index)
+	while (index)
 	{
 		if (index->value >= top && index->value <= bottom)
 			pos = i;
 		i++;
 		index = index->next;
 	}
-	return(len - pos);
+	return (len - pos);
 }

@@ -6,47 +6,47 @@
 /*   By: anfiorit <anfiorit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 19:58:46 by fio               #+#    #+#             */
-/*   Updated: 2025/08/27 12:21:40 by anfiorit         ###   ########.fr       */
+/*   Updated: 2025/08/27 16:10:57 by anfiorit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int is_value_in_chunk(t_node **stack, int first, int last)
+int	is_value_in_chunk(t_node **stack, int first, int last)
 {
+	t_node	*test;
 
-	t_node *test;
 	test = *stack;
-	while(test)
+	while (test)
 	{
-		if(test->value >= first && test->value <= last)
+		if (test->value >= first && test->value <= last)
 			return (1);
 		test = test->next;
 	}
 	return (0);
-
 }
-int choose_chunk_size(t_node **stack)
+
+int	choose_chunk_size(t_node **stack)
 {
-	int len;
+	int	len;
 
 	len = len_stack(stack);
-	if (len > 500)
-		return (50);
+	if (len > 400)
+		return (45);
 	else if (len > 300)
 		return (25);
 	else if (len > 100)
-		return (20);
+		return (15);
 	else if (len > 20)
 		return (5);
 	else
 		return (3);
 }
 
-int chunk_is_not_sorted(t_node **b, int top, int bottom)
+int	chunk_is_not_sorted(t_node **b, int top, int bottom)
 {
-	t_node *tmp;
-	int i;
+	t_node	*tmp;
+	int		i;
 
 	i = 0;
 	tmp = *b;
@@ -59,7 +59,7 @@ int chunk_is_not_sorted(t_node **b, int top, int bottom)
 	{
 		if (tmp->value > tmp->next->value)
 			return (0);
-		i++;		
+		i++;
 		tmp = tmp->next;
 	}
 	return (1);

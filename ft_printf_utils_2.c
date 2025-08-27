@@ -6,7 +6,7 @@
 /*   By: anfiorit <anfiorit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 12:25:44 by anfiorit          #+#    #+#             */
-/*   Updated: 2025/07/10 12:52:50 by anfiorit         ###   ########.fr       */
+/*   Updated: 2025/08/27 16:34:10 by anfiorit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	conv2hexp(unsigned long n, char *base)
 	len++;
 	return (len);
 }
+
 void	ft_u2char(unsigned int i)
 {
 	char	c;

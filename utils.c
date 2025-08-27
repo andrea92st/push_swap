@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fio <fio@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: anfiorit <anfiorit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 17:31:46 by anfiorit          #+#    #+#             */
-/*   Updated: 2025/07/21 13:56:30 by fio              ###   ########.fr       */
+/*   Updated: 2025/08/27 16:49:44 by anfiorit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int ft_strlen(char	*src)
+int	ft_strlen(char *src)
 {
 	int	i;
 
 	i = 0;
-	while(src[i])
+	while (src[i])
 		i++;
-	return(i);
+	return (i);
 }
 
 int	is_whitespace(char c)
@@ -29,7 +29,7 @@ int	is_whitespace(char c)
 	return (0);
 }
 
-static int	is_symbol(char c)
+int	is_symbol(char c)
 {
 	if ((c == '+') || (c == '-'))
 		return (1);
@@ -43,7 +43,7 @@ int	is_digit(char c)
 	return (0);
 }
 
-long ft_atol(const char *str)
+long	ft_atol(const char *str)
 {
 	int			i;
 	long		res;
@@ -66,6 +66,6 @@ long ft_atol(const char *str)
 		i++;
 	}
 	if (str[i] != '\0')
-        exit_prob();
+		exit_prob();
 	return (res * pos);
 }
