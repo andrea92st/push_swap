@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo_triv.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fio <fio@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: anfiorit <anfiorit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/17 13:54:21 by fio               #+#    #+#             */
-/*   Updated: 2025/08/18 22:39:51 by fio              ###   ########.fr       */
+/*   Updated: 2025/08/27 12:27:37 by anfiorit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void sort_four(t_node **a, t_node **b)
 	t_node *tmp;
 
 	tmp = *a;
-	pos = find_min(tmp);
+	pos = find_min_triv(tmp);
 	if (pos == 0)
 	{
 		pb(a,b);
@@ -94,7 +94,7 @@ void sort_five(t_node **a, t_node **b)
 	t_node *tmp;
 
 	tmp = *a;
-	pos = find_min(tmp);
+	pos = find_min_triv(tmp);
 	if (pos == 0)
 		pos_zero(a, b);
 	if (pos == 1)

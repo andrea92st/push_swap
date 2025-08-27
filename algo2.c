@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo2.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fio <fio@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: anfiorit <anfiorit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 19:58:46 by fio               #+#    #+#             */
-/*   Updated: 2025/08/26 21:21:27 by fio              ###   ########.fr       */
+/*   Updated: 2025/08/27 12:21:40 by anfiorit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int chunk_is_not_sorted(t_node **b, int top, int bottom)
 	t_node *tmp;
 	int i;
 
+	i = 0;
 	tmp = *b;
 	while (i < top)
 	{

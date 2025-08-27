@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fio <fio@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: anfiorit <anfiorit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 19:47:01 by fio               #+#    #+#             */
-/*   Updated: 2025/08/26 21:21:15 by fio              ###   ########.fr       */
+/*   Updated: 2025/08/27 12:44:22 by anfiorit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,30 +28,26 @@ int find_min(t_node **b)
 	return (min_val);
 }
 
-/*int find_max(t_node *tmp)
+int find_min_triv(t_node *tmp)
 {
 	int	pos;
 	int i;
-	int max_val;
+	int min_val;
 
+	min_val = tmp->value;
 	pos = 0;
 	i = 0;
-	
-	max_val = tmp->value;
-	tmp = tmp->next;
 	while (tmp)
 	{
-		i++;
-		if (max_val < tmp->value)
+		if (min_val < tmp->value)
 		{
-			max_val = tmp->value;
+			min_val = tmp->value;
 			pos = i;
 		}
-		
 		tmp = tmp->next;
 	}
 	return (pos);
-}*/
+}
 
 int len_stack(t_node **stack)
 {

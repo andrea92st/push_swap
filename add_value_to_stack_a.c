@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   add_value_to_stack_a.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fio <fio@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: anfiorit <anfiorit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 19:06:35 by anfiorit          #+#    #+#             */
-/*   Updated: 2025/08/20 17:01:25 by fio              ###   ########.fr       */
+/*   Updated: 2025/08/27 12:42:33 by anfiorit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void check_argument (char *argv, int *size_stack, t_node **stack_a)
 	int		i;
 	int		j;
 	int		n;
-	int		sign;
 	char	*buffer;
 
 	i = 0;
@@ -33,7 +32,6 @@ void check_argument (char *argv, int *size_stack, t_node **stack_a)
 		j = i;
 		while (j >= 0 && argv[j] != ' ')
 			j--;
-		sign = 0;
 		n = 0;
 		{
 			int start = j + 1;
