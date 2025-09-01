@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anfiorit <anfiorit@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fio <fio@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 16:52:23 by anfiorit          #+#    #+#             */
-/*   Updated: 2025/08/27 16:55:59 by anfiorit         ###   ########.fr       */
+/*   Updated: 2025/09/01 14:01:14 by fio              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,7 @@ void	copy_tab(int *tab, t_node **a);
 void	change_stack_val(t_node **a);
 void	sort_two(t_node **stack);
 void	sort_three(t_node **stack);
-void	sort_four(t_node **a, t_node **b);
-void	sort_five(t_node **a, t_node **b);
-int		find_min_triv(t_node *tmp);
-void	pos_zero(t_node **a, t_node **b);
-void	pos_one(t_node **a, t_node **b);
-void	pos_two(t_node **a, t_node **b);
-void	pos_last(t_node **a, t_node **b);
+int		find_min_index(t_node *tmp);
 int		len_stack(t_node **stack);
 void	main_algo(t_node **a, t_node **b);
 int		chunk_is_not_sorted(t_node **b, int top, int bottom);
@@ -74,6 +68,7 @@ void	sort_with_rrb(t_node **b, int count);
 int		find_min(t_node **b);
 int		pos_top(t_node **a, int top, int bottom);
 int		pos_bottom(t_node **a, int top, int bottom);
+void	sort_spec(t_node **a, t_node **b, int size);
 
 void	sa(t_node **a);
 void	sb(t_node **b);
