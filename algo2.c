@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo2.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anfiorit <anfiorit@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fio <fio@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 19:58:46 by fio               #+#    #+#             */
-/*   Updated: 2025/08/27 16:10:57 by anfiorit         ###   ########.fr       */
+/*   Updated: 2025/09/01 12:24:46 by fio              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	choose_chunk_size(t_node **stack)
 	else if (len > 100)
 		return (15);
 	else if (len > 20)
-		return (5);
+		return (15);
 	else
 		return (3);
 }
