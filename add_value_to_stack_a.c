@@ -6,18 +6,26 @@
 /*   By: anfiorit <anfiorit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 19:06:35 by anfiorit          #+#    #+#             */
-/*   Updated: 2025/08/27 16:29:05 by anfiorit         ###   ########.fr       */
+/*   Updated: 2025/09/02 13:04:20 by anfiorit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	check_argument(char *argv, int *size_stack, t_node **stack_a)
+void	process_argument(char *buffer, int *size_stack, t_node **stack_a)
+{
+	long	value;
+
+	value = ft_atol(buffer);
+	push_node_checked(stack_a, value);
+	(*size_stack)++;
+}
+
+void	parse_argument(char *argv, int *size_stack, t_node **stack_a)
 {
 	int		i;
-	int		j;
-	int		n;
 	int		start;
+	int		j;
 	char	*buffer;
 
 	i = 0;
@@ -26,28 +34,38 @@ void	check_argument(char *argv, int *size_stack, t_node **stack_a)
 	i--;
 	while (i >= 0)
 	{
-		while (i >= 0 && argv[i] == ' ')
-			i--;
-		if (i < 0)
-			break ;
-		j = i;
-		while (j >= 0 && argv[j] != ' ')
-			j--;
-		n = 0;
-		{
-			start = j + 1;
-			buffer = malloc(sizeof(char) * (i - start + 2));
-			if (!buffer)
-				exit_prob();
-			while (start <= i)
-				buffer[n++] = argv[start++];
-			buffer[n] = '\0';
-		}
-		is_int_valid(buffer, size_stack);
-		push_node_checked(stack_a, ft_atol(buffer));
+		buffer = extract_next_token(argv, &i, &start, &j);
+		if (!buffer)
+			exit_prob();
+		process_argument(buffer, size_stack, stack_a);
 		free(buffer);
 		i = j - 1;
 	}
+}
+
+char	*extract_next_token(char *argv, int *i, int *start, int *j)
+{
+	int		len;
+	char	*buffer;
+	int		n;
+
+	while (*i >= 0 && argv[*i] == ' ')
+		(*i)--;
+	if (*i < 0)
+		return (NULL);
+	*j = *i;
+	while (*j >= 0 && argv[*j] != ' ')
+		(*j)--;
+	*start = *j + 1;
+	len = *i - *start + 1;
+	buffer = malloc(len + 1);
+	if (!buffer)
+		return (NULL);
+	n = 0;
+	while (*start <= *i)
+		buffer[n++] = argv[(*start)++];
+	buffer[n] = '\0';
+	return (buffer);
 }
 
 void	push_node(t_node **stack, int value)

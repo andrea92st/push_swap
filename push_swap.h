@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fio <fio@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: anfiorit <anfiorit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 16:52:23 by anfiorit          #+#    #+#             */
-/*   Updated: 2025/09/01 14:01:14 by fio              ###   ########.fr       */
+/*   Updated: 2025/09/02 12:38:36 by anfiorit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,12 @@ int		conv2str(char *str);
 int		conv2int(int n);
 int		conv2u(unsigned int n);
 
-void	check_argument(char *argv, int *size, t_node **stack_a);
 void	exit_prob(void);
 long	ft_atol(const char *str);
 int		ft_strlen(char *str);
 void	push_node(t_node **stack, int value);
 void	is_int_valid(char *buffer, int *size);
-void	free_stack(t_node *stack);
+void	free_stack(t_node *stack_a, t_node *stack_b);
 int		value_exists(t_node *head, int n);
 void	push_node_checked(t_node **stack, int n);
 int		is_digit(char c);
@@ -69,6 +68,11 @@ int		find_min(t_node **b);
 int		pos_top(t_node **a, int top, int bottom);
 int		pos_bottom(t_node **a, int top, int bottom);
 void	sort_spec(t_node **a, t_node **b, int size);
+int		main_part_2(int argc, char **argv, int size, t_node **a);
+void	sort_little(t_node **a, t_node **b, int size);
+char	*extract_next_token(char *argv, int *i, int *start, int *j);
+void	parse_argument(char *argv, int *size_stack, t_node **stack_a);
+void	process_argument(char *buffer, int *size_stack, t_node **stack_a);
 
 void	sa(t_node **a);
 void	sb(t_node **b);

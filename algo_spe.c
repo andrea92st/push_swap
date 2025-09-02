@@ -6,7 +6,7 @@
 /*   By: anfiorit <anfiorit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/17 13:54:21 by fio               #+#    #+#             */
-/*   Updated: 2025/09/02 11:21:57 by anfiorit         ###   ########.fr       */
+/*   Updated: 2025/09/02 12:16:51 by anfiorit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,14 @@ void	sort_spec(t_node **a, t_node **b, int size)
 	sort_three(a);
 	while (*b)
 		pa(a, b);
+}
+
+void	sort_little(t_node **a, t_node **b, int size)
+{
+	if (size == 2)
+		sort_two(a);
+	else if (size == 3)
+		sort_three(a);
+	else if (size == 4 || size == 5)
+		sort_spec(a, b, size);
 }

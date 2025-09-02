@@ -6,7 +6,7 @@
 /*   By: anfiorit <anfiorit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 15:31:18 by anfiorit          #+#    #+#             */
-/*   Updated: 2025/09/02 11:34:31 by anfiorit         ###   ########.fr       */
+/*   Updated: 2025/09/02 12:32:52 by anfiorit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int	main(int argc, char **argv)
 	t_node	*stack_a;
 	t_node	*stack_b;
 	int		size;
-	int		i;
 
 	stack_a = NULL;
 	stack_b = NULL;
@@ -25,34 +24,35 @@ int	main(int argc, char **argv)
 	if (argc == 1)
 		exit_prob();
 	if (argc == 2)
-		check_argument(argv[1], &size, &stack_a);
+		parse_argument(argv[1], &size, &stack_a);
 	if (argc > 2)
-	{
-		i = argc - 1;
-		while (i > 0)
-		{
-			is_int_valid(argv[i], &size);
-			push_node_checked(&stack_a, ft_atol(argv[i]));
-			i--;
-		}
-	}
+		size = main_part_2(argc, argv, size, &stack_a);
 	if (is_sorted(stack_a) == 0)
 	{
-		free_stack(stack_a);
+		free_stack(stack_a, stack_b);
 		return (ft_printf("Error\n"));
 	}
 	change_stack_val(&stack_a);
-	if (size == 2)
-		sort_two(&stack_a);
-	if (size == 3)
-		sort_three(&stack_a);
-	if (size == 4 || size == 5)
-		sort_spec(&stack_a, &stack_b, size);
+	if (size <= 5)
+		sort_little(&stack_a, &stack_b, size);
 	if (size > 5)
 		main_algo(&stack_a, &stack_b);
-	free_stack(stack_a);
-	free_stack(stack_b);
+	free_stack(stack_a, stack_b);
 	return (0);
+}
+
+int	main_part_2(int argc, char **argv, int size, t_node **a)
+{
+	int	i;
+
+	i = argc - 1;
+	while (i > 0)
+	{
+		is_int_valid(argv[i], &size);
+		push_node_checked(a, ft_atol(argv[i]));
+		i--;
+	}
+	return (size);
 }
 /*
 void	print_stack(t_node *stack)
