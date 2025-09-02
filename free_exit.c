@@ -6,7 +6,7 @@
 /*   By: anfiorit <anfiorit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 19:54:47 by anfiorit          #+#    #+#             */
-/*   Updated: 2025/09/02 12:02:11 by anfiorit         ###   ########.fr       */
+/*   Updated: 2025/09/02 14:32:20 by anfiorit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,6 @@ void	free_stack(t_node *stack_a, t_node *stack_b)
 
 void	exit_prob(void)
 {
-	ft_printf("probleme d'argument tonton");
+	ft_printf("Error\n");
 	exit(1);
 }

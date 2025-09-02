@@ -6,7 +6,7 @@
 /*   By: anfiorit <anfiorit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 15:31:18 by anfiorit          #+#    #+#             */
-/*   Updated: 2025/09/02 12:32:52 by anfiorit         ###   ########.fr       */
+/*   Updated: 2025/09/02 14:41:11 by anfiorit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	main(int argc, char **argv)
 	if (is_sorted(stack_a) == 0)
 	{
 		free_stack(stack_a, stack_b);
-		return (ft_printf("Error\n"));
+		exit(1);
 	}
 	change_stack_val(&stack_a);
 	if (size <= 5)
