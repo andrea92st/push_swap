@@ -3,26 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fio <fio@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: anfiorit <anfiorit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 15:31:18 by anfiorit          #+#    #+#             */
-/*   Updated: 2025/09/01 14:12:05 by fio              ###   ########.fr       */
+/*   Updated: 2025/09/02 11:34:31 by anfiorit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print_stack(t_node *stack)
-{
-	t_node	*tmp;
-
-	tmp = stack;
-	while (tmp)
-	{
-		ft_printf("%d\n", tmp->value);
-		tmp = tmp->next;
-	}
-}
 int	main(int argc, char **argv)
 {
 	t_node	*stack_a;
@@ -61,9 +50,19 @@ int	main(int argc, char **argv)
 		sort_spec(&stack_a, &stack_b, size);
 	if (size > 5)
 		main_algo(&stack_a, &stack_b);
-	print_stack(stack_a);
 	free_stack(stack_a);
 	free_stack(stack_b);
 	return (0);
 }
+/*
+void	print_stack(t_node *stack)
+{
+	t_node	*tmp;
 
+	tmp = stack;
+	while (tmp)
+	{
+		ft_printf("%d\n", tmp->value);
+		tmp = tmp->next;
+	}
+}*/

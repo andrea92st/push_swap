@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algo_triv.c                                        :+:      :+:    :+:   */
+/*   algo_spe.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fio <fio@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: anfiorit <anfiorit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/17 13:54:21 by fio               #+#    #+#             */
-/*   Updated: 2025/09/01 14:01:45 by fio              ###   ########.fr       */
+/*   Updated: 2025/09/02 11:21:57 by anfiorit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,15 +51,14 @@ void	sort_three(t_node **stack)
 	return ;
 }
 
-
-void sort_spec(t_node **a, t_node **b, int size)
+void	sort_spec(t_node **a, t_node **b, int size)
 {
 	int	i;
 	int	len;
 
 	i = 0;
 	len = len_stack(a);
-	while(size > 3)
+	while (size > 3)
 	{
 		i = find_min_index(*a);
 		if (i <= len / 2)
@@ -72,7 +71,6 @@ void sort_spec(t_node **a, t_node **b, int size)
 		size--;
 	}
 	sort_three(a);
-	while(*b)
+	while (*b)
 		pa(a, b);
 }
-
