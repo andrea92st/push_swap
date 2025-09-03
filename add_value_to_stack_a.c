@@ -6,7 +6,7 @@
 /*   By: anfiorit <anfiorit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 19:06:35 by anfiorit          #+#    #+#             */
-/*   Updated: 2025/09/02 14:56:54 by anfiorit         ###   ########.fr       */
+/*   Updated: 2025/09/03 13:46:05 by anfiorit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@ void	process_argument(char *buffer, int *size_stack, t_node **stack_a)
 {
 	long	value;
 
+	if (is_buffer_digit(buffer) == 1)
+	{
+		free(buffer);
+		exit_prob();
+	}
 	value = ft_atol(buffer);
 	push_node_checked(stack_a, value);
 	(*size_stack)++;
@@ -35,8 +40,11 @@ void	parse_argument(char *argv, int *size_stack, t_node **stack_a)
 	while (i >= 0)
 	{
 		buffer = extract_next_token(argv, &i, &start, &j);
-		if (!buffer)
+		if (!buffer || is_buffer_digit(buffer) == 1)
+		{
+			free(buffer);
 			exit_prob();
+		}
 		process_argument(buffer, size_stack, stack_a);
 		free(buffer);
 		i = j - 1;

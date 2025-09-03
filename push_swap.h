@@ -6,7 +6,7 @@
 /*   By: anfiorit <anfiorit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 16:52:23 by anfiorit          #+#    #+#             */
-/*   Updated: 2025/09/02 12:38:36 by anfiorit         ###   ########.fr       */
+/*   Updated: 2025/09/03 13:59:49 by anfiorit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ void	sort_little(t_node **a, t_node **b, int size);
 char	*extract_next_token(char *argv, int *i, int *start, int *j);
 void	parse_argument(char *argv, int *size_stack, t_node **stack_a);
 void	process_argument(char *buffer, int *size_stack, t_node **stack_a);
+int		is_buffer_digit(char *buffer);
 
 void	sa(t_node **a);
 void	sb(t_node **b);

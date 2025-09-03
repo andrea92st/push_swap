@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo2.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fio <fio@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: anfiorit <anfiorit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 19:58:46 by fio               #+#    #+#             */
-/*   Updated: 2025/09/01 12:24:46 by fio              ###   ########.fr       */
+/*   Updated: 2025/09/03 13:59:12 by anfiorit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,19 @@ int	chunk_is_not_sorted(t_node **b, int top, int bottom)
 		tmp = tmp->next;
 	}
 	return (1);
+}
+
+int	is_buffer_digit(char *buffer)
+{
+	int	i;
+
+	i = 0;
+	while (buffer[i])
+	{
+		if (buffer[i] <= '9' && buffer[i] >= '0')
+			i++;
+		else
+			return (1);
+	}
+	return (0);
 }
